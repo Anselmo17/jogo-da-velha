@@ -5,6 +5,7 @@ body {
     text-align: center;
     font-family: Verdana, Helvetica, sans-serif;
     font-size: 1.3em;
+    padding: 1rem;
 }
 
 input {
@@ -18,6 +19,7 @@ input {
 
 input.casa {
     font-size: 5rem;
+    margin: 4px;
 }
 
 #jogador {
@@ -26,7 +28,7 @@ input.casa {
 
 #reiniciar {
     margin-top: 2%;
-    width: 20rem;
+    width: 30rem;
     height: 5rem;
     font-size: 1em;
     color: black;
@@ -39,3 +41,15 @@ input.casa {
     background-color: green;
     color: white;
 }
+
+
+@media (max-width: 780px) {
+    input.casa {
+        font-size: 2rem;
+    }
+
+    #reiniciar {
+        width: 15rem;
+        margin-top: 2rem;
+    }
+  }

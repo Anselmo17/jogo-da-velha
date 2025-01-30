@@ -2,6 +2,7 @@
 const casas = document.querySelectorAll(".casa");
 const b_reiniciar = document.getElementById("reiniciar");
 const label_jogador = document.getElementById("jogador");
+const vezAtual = document.getElementById("vezDoJogador");
 
 // Variáveis de estado do jogo
 let jogador = "_";
@@ -32,7 +33,7 @@ function trocarJogador() {
   } else {
     jogador = "X";
     label_jogador.innerText = jogador2;
-    label_jogador.style.color = "#00F";
+    label_jogador.style.color = "#F00";
   }
 }
 
@@ -66,6 +67,9 @@ function vitoria() {
 
 // Função para adicionar eventos aos botões
 function adicionarEventos() {
+
+  vezAtual.innerText = 'Sua vez de jogar';
+
   casas.forEach((casa, index) => {
     casa.addEventListener("click", (event) => {
       if (event.target.value === "_" && vencedor === "_") {
@@ -74,7 +78,10 @@ function adicionarEventos() {
 
         let resultadoVitoria = vitoria();
         if (resultadoVitoria !== "_") {
-          label_jogador.innerText = `${resultadoVitoria} venceu!`;
+          const jogadorAtual =  resultadoVitoria === 'O' ? jogador1 : jogador2;
+
+          vezAtual.innerText = 'O jogador';
+          label_jogador.innerText = `${jogadorAtual} venceu parabéns!`;
           limpaDados();
         } else{
             trocarJogador(); 
@@ -95,8 +102,9 @@ function limpaDados(){
         });
     
         vencedor = "_";
+        vezAtual.innerText = 'Sua vez de jogar'; 
         sortearJogador();
-      }); 
+      });
 }
 
 // Inicialização do jogo
